@@ -15,6 +15,11 @@
     <description>Access to the Intelligent Store Replenishment Assistant workshop fields and Apex.</description>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Order.Description</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Order.Retail_Store__c</field>
         <readable>true</readable>
     </fieldPermissions>
