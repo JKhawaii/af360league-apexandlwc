@@ -72,7 +72,7 @@ public inherited sharing class ReplenishmentRecommendationAction {
         List<RetailStore> stores = [
             SELECT Id, Name, StoreType, AccountId
             FROM RetailStore
-            WHERE Name LIKE :storePattern
+            WHERE Name LIKE :storePattern and StoreType!='' 
             WITH USER_MODE
             ORDER BY Name
             LIMIT 2
