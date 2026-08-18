@@ -1,0 +1,5 @@
+{
+  "title" : "Replenishment Result",
+  "description" : "Structured assortment-aware replenishment recommendations for a retail store.",
+  "lightning:type" : "@apexClassType/c__ReplenishmentRecommendationAction$ReplenishmentResult"
+}

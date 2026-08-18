@@ -1,0 +1,62 @@
+<template>
+  <article class="card">
+    <div class="image-wrapper">
+      <template lwc:if={hasImage}>
+        <img
+          class="product-image"
+          src={product.imageUrl}
+          alt={product.name}
+          onerror={handleImageError}
+        />
+      </template>
+      <template lwc:else>
+        <lightning-icon
+          icon-name="standard:product"
+          alternative-text=""
+          size="large"
+        ></lightning-icon>
+      </template>
+      <span class="recommendation">
+        Recommend {product.recommendedQuantity}
+      </span>
+    </div>
+
+    <div class="card-body">
+      <p class="product-code">{product.productCode}</p>
+      <h3 class="product-name" title={product.name}>{product.name}</h3>
+      <p class="price">{formattedPrice} per unit</p>
+
+      <dl class="inventory">
+        <div>
+          <dt>Current</dt>
+          <dd>{product.currentStock}</dd>
+        </div>
+        <div>
+          <dt>Safety</dt>
+          <dd>{product.safetyStock}</dd>
+        </div>
+      </dl>
+      <p class={stockClass}>{stockStatus}</p>
+
+      <div class="actions">
+        <lightning-input
+          type="checkbox"
+          label={checkboxLabel}
+          checked={selected}
+          onchange={handleSelection}
+        ></lightning-input>
+        <template lwc:if={selected}>
+          <lightning-input
+            type="number"
+            label={quantityLabel}
+            value={quantity}
+            min="1"
+            step="1"
+            required
+            onchange={handleQuantity}
+          ></lightning-input>
+        </template>
+      </div>
+    </div>
+  </article>
+</template>

@@ -1,0 +1,38 @@
+[
+    {
+        "sobject": "Account",
+        "files": [
+            "workshop-Account.json"
+        ]
+    },
+    {
+        "sobject": "RetailStore",
+        "files": [
+            "workshop-RetailStore.json"
+        ]
+    },
+    {
+        "sobject": "Assortment",
+        "files": [
+            "workshop-Assortment.json"
+        ]
+    },
+    {
+        "sobject": "Product2",
+        "files": [
+            "workshop-Product2.json"
+        ]
+    },
+    {
+        "sobject": "AssortmentProduct",
+        "files": [
+            "workshop-AssortmentProduct.json"
+        ]
+    },
+    {
+        "sobject": "StoreProduct",
+        "files": [
+            "workshop-StoreProduct.json"
+        ]
+    }
+]

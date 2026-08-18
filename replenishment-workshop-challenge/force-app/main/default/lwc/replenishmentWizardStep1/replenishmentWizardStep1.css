@@ -1,0 +1,27 @@
+:host {
+  display: block;
+  min-height: 18rem;
+  position: relative;
+}
+
+.store-panel {
+  align-items: center;
+  background: #f3f3f3;
+  border: 1px solid #c9c9c9;
+  border-radius: 0.25rem;
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.25rem;
+  padding: 1rem;
+}
+
+.store-id {
+  color: #706e6b;
+  font-size: 0.75rem;
+  margin-top: 0.125rem;
+}
+
+.date-input {
+  margin-top: 1.25rem;
+  max-width: 24rem;
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>Order.Retail_Store__c</members>
+        <members>StoreProduct.Average_Daily_Sales__c</members>
+        <members>StoreProduct.Current_Stock__c</members>
+        <members>StoreProduct.Lead_Time_Days__c</members>
+        <members>StoreProduct.Safety_Stock__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>Replenishment_Formula__mdt</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Replenishment_Formula.*</members>
+        <name>CustomMetadata</name>
+    </types>
+    <types>
+        <members>Replenishment_Data_Load</members>
+        <name>PermissionSet</name>
+    </types>
+    <version>67.0</version>
+</Package>

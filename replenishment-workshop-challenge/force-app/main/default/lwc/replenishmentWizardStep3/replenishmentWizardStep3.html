@@ -1,0 +1,105 @@
+<template>
+  <section aria-labelledby="review-heading">
+    <h2 id="review-heading" class="slds-text-heading_medium">
+      Review replenishment order
+    </h2>
+
+    <div class="summary-grid">
+      <div class="summary-item">
+        <span>Store</span>
+        <strong>{storeName}</strong>
+        <small>{storeType}</small>
+      </div>
+      <div class="summary-item">
+        <span>Requested date</span>
+        <strong>{formattedOrderDate}</strong>
+      </div>
+      <div class="summary-item">
+        <span>Products / units</span>
+        <strong>{productCount} / {totalUnits}</strong>
+      </div>
+      <div class="summary-item">
+        <span>Estimated total</span>
+        <lightning-formatted-number
+          value={estimatedTotal}
+          format-style="currency"
+          currency-code="USD"
+        ></lightning-formatted-number>
+      </div>
+    </div>
+
+    <div class="line-items" role="list" aria-label="Selected products">
+      <template for:each={chosenProducts} for:item="product">
+        <article key={product.productId} class="line-item" role="listitem">
+          <div>
+            <strong>{product.name}</strong>
+            <p>{product.productCode}</p>
+          </div>
+          <span>Qty {product.quantity}</span>
+          <lightning-formatted-number
+            value={product.lineTotal}
+            format-style="currency"
+            currency-code="USD"
+          ></lightning-formatted-number>
+        </article>
+      </template>
+    </div>
+
+    <lightning-textarea
+      label="Order notes"
+      value={orderNotes}
+      max-length="1000"
+      onchange={handleNotesChange}
+    ></lightning-textarea>
+
+    <template lwc:if={errorMessage}>
+      <div class="slds-notify slds-notify_alert slds-alert_error" role="alert">
+        <span>{errorMessage}</span>
+      </div>
+    </template>
+
+    <template lwc:if={hasOrder}>
+      <div class="success-panel" role="status">
+        <lightning-icon
+          icon-name="utility:success"
+          variant="success"
+          alternative-text="Success"
+          size="small"
+        ></lightning-icon>
+        <div>
+          <strong>{orderNumber} created</strong>
+          <p>The replenishment order is ready for review.</p>
+        </div>
+      </div>
+      <div class="actions">
+        <lightning-button
+          label="View Order"
+          onclick={handleViewOrder}
+        ></lightning-button>
+        <lightning-button
+          variant="brand"
+          label="Ask Agentforce"
+          icon-name="utility:einstein"
+          disabled={askAgentDisabled}
+          onclick={handleAskAgentforce}
+        ></lightning-button>
+      </div>
+    </template>
+    <template lwc:else>
+      <div class="actions">
+        <lightning-button
+          variant="brand"
+          label="Create Replenishment Order"
+          disabled={createDisabled}
+          onclick={handleCreateOrder}
+        ></lightning-button>
+        <template lwc:if={isCreating}>
+          <lightning-spinner
+            alternative-text="Creating replenishment order"
+            size="small"
+          ></lightning-spinner>
+        </template>
+      </div>
+    </template>
+  </section>
+</template>

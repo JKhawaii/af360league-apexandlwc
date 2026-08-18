@@ -1,0 +1,46 @@
+<template>
+  <section aria-labelledby="store-heading">
+    <h2 id="store-heading" class="slds-text-heading_medium">
+      Confirm store and requested date
+    </h2>
+    <p class="slds-text-body_regular slds-m-top_x-small">
+      We will use the store profile to find eligible replenishment items.
+    </p>
+
+    <template lwc:if={isLoading}>
+      <lightning-spinner
+        alternative-text="Loading retail store"
+        size="small"
+      ></lightning-spinner>
+    </template>
+    <template lwc:elseif={errorMessage}>
+      <div class="slds-notify slds-notify_alert slds-alert_error" role="alert">
+        <span>{errorMessage}</span>
+      </div>
+    </template>
+    <template lwc:else>
+      <div class="store-panel">
+        <lightning-icon
+          icon-name="standard:store"
+          alternative-text="Retail Store"
+          size="medium"
+        ></lightning-icon>
+        <div>
+          <p class="slds-text-heading_small">{storeName}</p>
+          <p class="slds-text-color_weak">{storeType}</p>
+          <p class="store-id">Store ID: {storeId}</p>
+        </div>
+      </div>
+      <lightning-input
+        class="date-input"
+        type="date"
+        name="orderDate"
+        label="Requested order date"
+        value={orderDate}
+        min={today}
+        required
+        onchange={handleDateChange}
+      ></lightning-input>
+    </template>
+  </section>
+</template>

@@ -1,0 +1,55 @@
+<template>
+  <lightning-card title="Intelligent Store Replenishment">
+    <div class="wizard">
+      <ol class="steps" aria-label="Replenishment progress">
+        <template for:each={steps} for:item="step">
+          <li
+            key={step.number}
+            class={step.cssClass}
+            aria-current={step.ariaCurrent}
+          >
+            <span class="step__number">{step.number}</span>
+            <span class="step__label">{step.label}</span>
+          </li>
+        </template>
+      </ol>
+
+      <div class="content">
+        <template lwc:if={isStepOne}>
+          <c-replenishment-wizard-step1
+            record-id={recordId}
+            onstepvalidity={handleStepOneValidity}
+          ></c-replenishment-wizard-step1>
+        </template>
+        <template lwc:elseif={isStepTwo}>
+          <c-replenishment-wizard-step2> </c-replenishment-wizard-step2>
+        </template>
+        <template lwc:elseif={isStepThree}>
+          <c-replenishment-wizard-step3
+            bot-id={botId}
+            onordercreated={handleOrderCreated}
+          ></c-replenishment-wizard-step3>
+        </template>
+      </div>
+
+      <template lwc:if={showFooter}>
+        <footer class="footer">
+          <template lwc:if={showBack}>
+            <lightning-button
+              label="Back"
+              onclick={handleBack}
+            ></lightning-button>
+          </template>
+          <template lwc:if={showNext}>
+            <lightning-button
+              variant="brand"
+              label="Next"
+              disabled={nextDisabled}
+              onclick={handleNext}
+            ></lightning-button>
+          </template>
+        </footer>
+      </template>
+    </div>
+  </lightning-card>
+</template>

@@ -1,0 +1,74 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "StoreProduct",
+                "referenceId": "StoreProductRef1"
+            },
+            "RetailStoreId": "@RetailStoreRef1",
+            "ProductId": "@Product2Ref1",
+            "Current_Stock__c": 2,
+            "Safety_Stock__c": 10,
+            "Average_Daily_Sales__c": 4,
+            "Lead_Time_Days__c": 4,
+            "StartDate": "2026-08-17",
+            "EndDate": "2027-08-17"
+        },
+        {
+            "attributes": {
+                "type": "StoreProduct",
+                "referenceId": "StoreProductRef2"
+            },
+            "RetailStoreId": "@RetailStoreRef1",
+            "ProductId": "@Product2Ref2",
+            "Current_Stock__c": 20,
+            "Safety_Stock__c": 12,
+            "Average_Daily_Sales__c": 3,
+            "Lead_Time_Days__c": 2,
+            "StartDate": "2026-08-17",
+            "EndDate": "2027-08-17"
+        },
+        {
+            "attributes": {
+                "type": "StoreProduct",
+                "referenceId": "StoreProductRef3"
+            },
+            "RetailStoreId": "@RetailStoreRef1",
+            "ProductId": "@Product2Ref3",
+            "Current_Stock__c": 0,
+            "Safety_Stock__c": 8,
+            "Average_Daily_Sales__c": 5,
+            "Lead_Time_Days__c": 3,
+            "StartDate": "2026-08-17",
+            "EndDate": "2027-08-17"
+        },
+        {
+            "attributes": {
+                "type": "StoreProduct",
+                "referenceId": "StoreProductRef4"
+            },
+            "RetailStoreId": "@RetailStoreRef1",
+            "ProductId": "@Product2Ref4",
+            "Current_Stock__c": 6,
+            "Safety_Stock__c": 10,
+            "Average_Daily_Sales__c": 2,
+            "Lead_Time_Days__c": 5,
+            "StartDate": "2026-08-17",
+            "EndDate": "2027-08-17"
+        },
+        {
+            "attributes": {
+                "type": "StoreProduct",
+                "referenceId": "StoreProductRef5"
+            },
+            "RetailStoreId": "@RetailStoreRef1",
+            "ProductId": "@Product2Ref5",
+            "Current_Stock__c": 8,
+            "Safety_Stock__c": 15,
+            "Average_Daily_Sales__c": 6,
+            "Lead_Time_Days__c": 3,
+            "StartDate": "2026-08-17",
+            "EndDate": "2027-08-17"
+        }
+    ]
+}

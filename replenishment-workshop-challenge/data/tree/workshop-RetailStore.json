@@ -1,0 +1,13 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "RetailStore",
+                "referenceId": "RetailStoreRef1"
+            },
+            "Name": "Kroger Store - Noe Valley",
+            "StoreType": "Regular Store",
+            "AccountId": "@AccountRef1"
+        }
+    ]
+}

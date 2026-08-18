@@ -1,0 +1,43 @@
+<template>
+  <div class="carousel" role="region" aria-label="Eligible products">
+    <div class="carousel-header">
+      <span class="position" aria-live="polite">{positionLabel}</span>
+      <div class="controls">
+        <lightning-button-icon
+          icon-name="utility:chevronleft"
+          variant="border-filled"
+          alternative-text="Show previous product"
+          title="Previous product"
+          disabled={previousDisabled}
+          onclick={scrollPrevious}
+        ></lightning-button-icon>
+        <lightning-button-icon
+          icon-name="utility:chevronright"
+          variant="border-filled"
+          alternative-text="Show next product"
+          title="Next product"
+          disabled={nextDisabled}
+          onclick={scrollNext}
+        ></lightning-button-icon>
+      </div>
+    </div>
+    <template lwc:if={hasProducts}>
+      <div
+        class="carousel-track"
+        data-id="track"
+        tabindex="0"
+        onscroll={handleScroll}
+      >
+        <template for:each={products} for:item="product">
+          <div key={product.productId} class="carousel-item">
+            <c-replenishment-product-card
+              product={product}
+              selected={product.selected}
+              quantity={product.quantity}
+            ></c-replenishment-product-card>
+          </div>
+        </template>
+      </div>
+    </template>
+  </div>
+</template>

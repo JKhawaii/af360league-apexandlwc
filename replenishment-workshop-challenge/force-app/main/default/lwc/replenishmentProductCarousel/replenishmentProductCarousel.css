@@ -1,0 +1,60 @@
+:host {
+  display: block;
+}
+
+.carousel {
+  background: #f3f3f3;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.carousel-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.position {
+  color: #444;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.carousel-track {
+  display: grid;
+  gap: 1rem;
+  grid-auto-columns: minmax(16rem, calc((100% - 2rem) / 3));
+  grid-auto-flow: column;
+  overflow-x: auto;
+  padding: 0.25rem 0.125rem 0.75rem;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-color: #747474 transparent;
+}
+
+.carousel-item {
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+@media (max-width: 64rem) {
+  .carousel-track {
+    grid-auto-columns: minmax(16rem, calc((100% - 1rem) / 2));
+  }
+}
+
+@media (max-width: 40rem) {
+  .carousel {
+    padding: 0.75rem;
+  }
+
+  .carousel-track {
+    grid-auto-columns: 90%;
+  }
+}

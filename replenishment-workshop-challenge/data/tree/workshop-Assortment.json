@@ -1,0 +1,13 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "Assortment",
+                "referenceId": "AssortmentRef1"
+            },
+            "Name": "Kroger HQ Listing",
+            "cgcloud__Valid_From__c": "2019-10-03",
+            "cgcloud__Valid_Thru__c": "2100-10-25"
+        }
+    ]
+}

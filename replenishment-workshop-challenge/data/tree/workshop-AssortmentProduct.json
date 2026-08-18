@@ -1,0 +1,49 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "AssortmentProduct",
+                "referenceId": "AssortmentProductRef1"
+            },
+            "AssortmentId": "@AssortmentRef1",
+            "ProductId": "@Product2Ref1",
+            "DefaultOrderQuantity": 12
+        },
+        {
+            "attributes": {
+                "type": "AssortmentProduct",
+                "referenceId": "AssortmentProductRef2"
+            },
+            "AssortmentId": "@AssortmentRef1",
+            "ProductId": "@Product2Ref5",
+            "DefaultOrderQuantity": 12
+        },
+        {
+            "attributes": {
+                "type": "AssortmentProduct",
+                "referenceId": "AssortmentProductRef3"
+            },
+            "AssortmentId": "@AssortmentRef1",
+            "ProductId": "@Product2Ref2",
+            "DefaultOrderQuantity": 12
+        },
+        {
+            "attributes": {
+                "type": "AssortmentProduct",
+                "referenceId": "AssortmentProductRef4"
+            },
+            "AssortmentId": "@AssortmentRef1",
+            "ProductId": "@Product2Ref3",
+            "DefaultOrderQuantity": 12
+        },
+        {
+            "attributes": {
+                "type": "AssortmentProduct",
+                "referenceId": "AssortmentProductRef5"
+            },
+            "AssortmentId": "@AssortmentRef1",
+            "ProductId": "@Product2Ref4",
+            "DefaultOrderQuantity": 12
+        }
+    ]
+}

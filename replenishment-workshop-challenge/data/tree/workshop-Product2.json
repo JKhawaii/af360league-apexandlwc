@@ -1,0 +1,49 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref1"
+            },
+            "Name": "*Dash Cranberry",
+            "ProductCode": "BEV-CRAN-001",
+            "IsActive": true
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref2"
+            },
+            "Name": "Upper Springs",
+            "ProductCode": "BEV-SPRING-001",
+            "IsActive": true
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref3"
+            },
+            "Name": "Upper Springs Sparkling",
+            "ProductCode": "BEV-SPARK-001",
+            "IsActive": true
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref4"
+            },
+            "Name": "Upper Springs Sparkling Flavored PET Bottle",
+            "ProductCode": "BEV-FLAVOR-001",
+            "IsActive": true
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref5"
+            },
+            "Name": "Water",
+            "ProductCode": "BEV-WATER-001",
+            "IsActive": true
+        }
+    ]
+}

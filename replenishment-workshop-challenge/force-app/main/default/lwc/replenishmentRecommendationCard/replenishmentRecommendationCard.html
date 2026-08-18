@@ -1,0 +1,190 @@
+<template>
+  <article class="recommendation-card">
+    <header class="header">
+      <lightning-icon
+        icon-name="utility:einstein"
+        alternative-text="Agentforce"
+        size="small"
+      ></lightning-icon>
+      <div>
+        <p class="eyebrow">Agentforce recommendation</p>
+        <h2>{result.title}</h2>
+      </div>
+    </header>
+
+    <p class="summary">{result.summary}</p>
+
+    <div class="facts">
+      <template lwc:if={hasStoreName}>
+        <div>
+          <span>Store</span>
+          <strong>{result.storeName}</strong>
+        </div>
+      </template>
+      <template lwc:if={hasRiskLevel}>
+        <div>
+          <span>Risk</span>
+          <strong class={riskClass}>{result.riskLevel}</strong>
+        </div>
+      </template>
+      <template lwc:if={hasEstimatedTotal}>
+        <div>
+          <span>Estimated total</span>
+          <strong>
+            <lightning-formatted-number
+              value={result.estimatedTotal}
+              format-style="currency"
+              currency-code="USD"
+            ></lightning-formatted-number>
+          </strong>
+        </div>
+      </template>
+      <template lwc:if={hasOrderId}>
+        <div>
+          <span>Order ID</span>
+          <strong>{result.orderId}</strong>
+        </div>
+      </template>
+    </div>
+
+    <template lwc:if={hasRecommendations}>
+      <section class="carousel-section" aria-labelledby="recommendations-title">
+        <div class="carousel-header">
+          <div>
+            <p class="carousel-eyebrow">Active assortment</p>
+            <h3 id="recommendations-title">Recommended products</h3>
+          </div>
+          <div class="carousel-controls">
+            <lightning-button-icon
+              icon-name="utility:chevronleft"
+              alternative-text="Previous product"
+              title="Previous product"
+              disabled={previousDisabled}
+              onclick={showPrevious}
+            ></lightning-button-icon>
+            <lightning-button-icon
+              icon-name="utility:chevronright"
+              alternative-text="Next product"
+              title="Next product"
+              disabled={nextDisabled}
+              onclick={showNext}
+            ></lightning-button-icon>
+          </div>
+        </div>
+
+        <div
+          class="carousel-track"
+          data-id="track"
+          role="region"
+          aria-label="Replenishment product recommendations"
+          onscroll={handleScroll}
+        >
+          <template for:each={result.recommendations} for:item="recommendation">
+            <article
+              key={recommendation.key}
+              class="product-card"
+              data-carousel-item
+            >
+              <div class="product-visual">
+                <template lwc:if={recommendation.imageUrl}>
+                  <img
+                    src={recommendation.imageUrl}
+                    alt={recommendation.name}
+                    class="product-image"
+                  />
+                </template>
+                <template lwc:else>
+                  <div class="product-placeholder">
+                    <lightning-icon
+                      icon-name="standard:product"
+                      alternative-text=""
+                      size="large"
+                    ></lightning-icon>
+                    <span>Beverage</span>
+                  </div>
+                </template>
+                <template lwc:if={recommendation.urgency}>
+                  <span class={recommendation.urgencyClass}>
+                    {recommendation.urgency}
+                  </span>
+                </template>
+              </div>
+
+              <div class="product-content">
+                <template lwc:if={recommendation.productCode}>
+                  <p class="product-code">{recommendation.productCode}</p>
+                </template>
+                <h4>{recommendation.name}</h4>
+
+                <div class="quantity-row">
+                  <span>Recommended order</span>
+                  <strong>{recommendation.quantity} units</strong>
+                </div>
+
+                <div class="inventory-grid">
+                  <div>
+                    <span>On hand</span>
+                    <strong>{recommendation.currentStock}</strong>
+                  </div>
+                  <div>
+                    <span>Safety stock</span>
+                    <strong>{recommendation.safetyStock}</strong>
+                  </div>
+                  <div>
+                    <span>Daily sales</span>
+                    <strong>{recommendation.averageDailySales}</strong>
+                  </div>
+                  <div>
+                    <span>Lead time</span>
+                    <strong>{recommendation.leadTimeDays} days</strong>
+                  </div>
+                </div>
+
+                <div class="price-row">
+                  <div>
+                    <span>Unit price</span>
+                    <lightning-formatted-number
+                      value={recommendation.unitPrice}
+                      format-style="currency"
+                      currency-code="USD"
+                    ></lightning-formatted-number>
+                  </div>
+                  <div>
+                    <span>Line value</span>
+                    <strong>
+                      <lightning-formatted-number
+                        value={recommendation.estimatedLineValue}
+                        format-style="currency"
+                        currency-code="USD"
+                      ></lightning-formatted-number>
+                    </strong>
+                  </div>
+                </div>
+
+                <template lwc:if={recommendation.reason}>
+                  <p class="reason">{recommendation.reason}</p>
+                </template>
+              </div>
+            </article>
+          </template>
+        </div>
+
+        <div class="carousel-footer">
+          <span>{positionLabel}</span>
+          <div class="carousel-dots" aria-label="Choose a product">
+            <template for:each={carouselDots} for:item="dot">
+              <button
+                key={dot.index}
+                class={dot.cssClass}
+                data-index={dot.index}
+                title={dot.title}
+                aria-label={dot.title}
+                onclick={handleDotClick}
+              ></button>
+            </template>
+          </div>
+        </div>
+      </section>
+    </template>
+  </article>
+</template>

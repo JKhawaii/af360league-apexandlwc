@@ -1,0 +1,66 @@
+<template>
+  <section aria-labelledby="products-heading">
+    <div class="heading-row">
+      <div>
+        <h2 id="products-heading" class="slds-text-heading_medium">
+          Choose replenishment products
+        </h2>
+        <p class="slds-text-color_weak">{selectedSummary}</p>
+      </div>
+      <lightning-input
+        type="search"
+        name="productSearch"
+        label="Search eligible products"
+        variant="label-hidden"
+        placeholder="Search by name or product code"
+                onchange={handleSearchInput}
+      ></lightning-input>
+    </div>
+
+    <template lwc:if={isLoading}>
+      <div class="loading">
+        <lightning-spinner
+          alternative-text="Loading eligible products"
+          size="medium"
+        ></lightning-spinner>
+      </div>
+    </template>
+    <template lwc:elseif={errorMessage}>
+      <div class="slds-notify slds-notify_alert slds-alert_error" role="alert">
+        <span>{errorMessage}</span>
+      </div>
+    </template>
+    <template lwc:elseif={hasProducts}>
+      <c-replenishment-product-carousel
+        products={products}
+        onselectionchange={handleSelectionChange}
+        onquantitychange={handleQuantityChange}
+      ></c-replenishment-product-carousel>
+      <div class="pagination" aria-label="Product pages">
+        <lightning-button
+          label="Previous"
+          icon-name="utility:chevronleft"
+          disabled={previousDisabled}
+          onclick={handlePreviousPage}
+        ></lightning-button>
+        <lightning-button
+          label="Next"
+          icon-name="utility:chevronright"
+          icon-position="right"
+          disabled={nextDisabled}
+          onclick={handleNextPage}
+        ></lightning-button>
+      </div>
+    </template>
+    <template lwc:else>
+      <div class="empty-state">
+        <lightning-icon
+          icon-name="utility:search"
+          size="small"
+          alternative-text=""
+        ></lightning-icon>
+        <p>No eligible products match this search.</p>
+      </div>
+    </template>
+  </section>
+</template>
