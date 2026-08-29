@@ -158,7 +158,7 @@ public inherited sharing class ReplenishmentController {
         // TODO FOR THE CHALLENGE (Task 2):
         // Replace null with queryText.
         Database.PaginationCursor cursor =
-            Database.getPaginationCursorWithBinds(null, binds, AccessLevel.USER_MODE);
+            Database.getPaginationCursorWithBinds(queryText, binds, AccessLevel.USER_MODE);
         Integer totalRecords = cursor.getNumRecords();
         response.totalRecords = totalRecords;
         if (safeStart >= totalRecords) {
