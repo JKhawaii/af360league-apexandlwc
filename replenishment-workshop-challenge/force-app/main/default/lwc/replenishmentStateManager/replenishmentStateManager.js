@@ -100,7 +100,7 @@ const createReplenishmentState = defineState(
         chosenProducts,
         chosenProducts.value.map((product) => (
           product.productId === productId
-            ? { ...product, quantity: normalizeQuantity(quantity) }
+            ? { ...product, quantity: normalizeQuantity(product.quantity?? product.defaultOrderQuantity) }
             : product
         ))
       );
